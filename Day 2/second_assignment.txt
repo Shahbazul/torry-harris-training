@@ -1,0 +1,44 @@
+manual and automation
+
+Module 1
+Updating/deletion/addition- automation testing because it involves number of operation to happen again and again
+
+Module 2
+Sorting and filtering- automationtesting based on the user's details 
+
+Module 3
+Security deposite- manual testing as this operation happens only once
+
+module 4  
+Permanent buying of product- manual testing because its not repetative
+
+Module 5
+Premium membership- manual testing because it is done only once by the user 
+
+Module 6
+Renewal- manual testing since it is done once
+
+Module 7
+reminder message- manual testing-wheather the module is able to produce the message or not
+
+Module 8
+product notification- manual testing only few notification will be send on product  
+
+Module 9
+Product suggestions- automation testing as it involves lot of product 
+
+Module 10
+Bulk ordering- manual testing since it involves single purchase case
+
+Module 11
+upgrading a product -Automation testing we can check if any toy is added/deleted and updated
+
+
+
+Integration
+
+1.Updating/deletion/addition and sorting and filtering- can be integrated using buttom-up(Automation)
+
+2.Security deposite and permanent buying of product can be integrated using top down method(Manual)
+
+3.Security Deposit, Premium Membership and Renewal - can be integrated using top down(Manual)
