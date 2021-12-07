@@ -1,0 +1,179 @@
+
+sudo apt-get install nmap
+sudo apt-get istall net-tools
+
+---------------------
+[for both machine] 
+
+sudo apt install openssh-server
+sudo systemctl status ssh
+sudo apt update
+-->[ssh-server should be open for both]
+------------------------------
+setting
+network
+
+attached->Bridge Adapter
+------------------------------------
+$ssh-keygen
+
+$ssh-copy-id sinchana1@192.168.1.7
+
+ssh sinchana1@192.168.1.7
+
+exit
+or
+
+sudo gedit /etc/ansbile/hosts 
+       ||       
+       ||
+       \/
+       192.168.10.10 ansible_user=node
+
+ansible all -m ping
+----------------------------------
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible
+
+
+ansible thbs_solutions -m shell -a 'uname -a'  -i myInvetory.txt
+
+
+[17:25] trainer
+- name: Install apache httpd  (state=present is optional)apt:name: apache2state: present
+
+ansible.builtin.apt – Manages apt-packages — Ansible Documentation
+
+ansible thbs_solution -m apt -a 'name=apache2 state=present' -i myInventory.txt -b --ask-pass
+-----------------------------------------------------
+
+29/11
+
+[11:43] trainer
+---# ansible -m file -a 'path=/tmp/surekha.txt state=present' all 
+# YAML - yet another markup lang
+- name: create at new file and delete it.
+  hosts: all  
+  tasks:    
+   - name: create username file in tmp directory  
+     file:        
+      path: '/tmp/surekha.txt'        
+      state: touch
+# touch hello.yml
+# gedit or vi hello.yml
+# :wq
+#
+ ansible-playbook hello.yml
+# which apache2
+
+- name: install httpd packages and update sample webpage and start service
+
+  hosts: all
+
+  become: yes # root user going to excute
+
+
+
+  tasks:
+
+    - name: Update all packages to their latest version
+
+      apt:
+
+        name: "*"
+
+        state: latest
+
+
+
+    - name: Install apache2 httpd  (state=present is optional)
+
+      apt:
+
+        name: apache2
+
+        state: present
+
+
+
+    - name: Copy index test page
+
+      copy:
+
+        src: "index.html"
+
+        dest: "/var/www/index.html"
+
+        force: yes
+
+
+
+    - name: Restart Apache
+
+      service:
+
+        name: apache2
+
+        state: restarted
+---------------------------------------------
+
+1/12
+
+  - name: learning handler concept
+
+  hosts: all
+
+  become: yes
+
+
+
+  tasks:
+
+    - name: Install apache httpd  (state=present is optional)
+
+      apt:
+
+        name: apache2
+
+        state: present
+
+
+
+    - name: display apache configs
+
+      shell:
+
+        cmd: ls -la | grep /var/www/html
+
+
+
+    # - name: now install and config done
+
+    #   shell: ls -la
+
+    #   notify:
+
+    #     - restart apache again
+
+
+
+''  handlers:
+''
+    - name: restart apache again
+
+      service:
+
+        name: apache2
+
+        state: restarted
+
+''''''  roles''''
+  
+///cd test-playbook
+
+   ansible-galaxy init roles
+
+
+
